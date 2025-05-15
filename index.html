@@ -2,180 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Web Films Distribution</title>
-  <meta name="description" content="Boutique horror film distribution respecting your vision." />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="icon" href="deepwebfilms-logo.png" type="image/png" />
+  <meta name="description" content="Official site for Deep Web Films Distribution, releasing bold niche horror cinema on platforms like Tubi, Amazon, Shudder and Mubi." />
+  <link rel="icon" type="image/png" href="deepwebfilms-logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      margin: 0; padding: 0;
-      background-color: #000;
-      overflow-x: hidden;
-      height: 100%;
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
       font-family: 'Roboto', sans-serif;
+      background: #0a0a0a;
       color: #f2f2f2;
-      background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
-      background-image: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/scanlines.png');
-      background-size: cover;
-      background-blend-mode: overlay;
-      animation: scanline-move 3s linear infinite;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-      justify-content: center;
-      padding: 2rem;
     }
     header {
-      margin-bottom: 2rem;
-    }
-    header img.logo {
-      height: 100px;
-      max-width: 100%;
-      display: block;
-      margin: 0 auto;
-    }
-    h1 {
-      font-weight: 700;
-      font-size: 3rem;
-      color: #ff2b2b;
-      margin: 0 0 1rem;
-    }
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      line-height: 1.5;
-      margin: 0 0 2rem;
-      color: #ccc;
-    }
-    a.button {
-      display: inline-block;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 1rem 2rem;
-      background: #ff2b2b;
-      color: #fff;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-      cursor: pointer;
+      background-color: #111;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    a.button:hover {
-      background: #cc2424;
+    nav a {
+      margin-left: 1.5rem;
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    nav a:hover {
+      color: #ff2b2b;
+    }
+    .logo {
+      height: 50px;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+    }
+    .hero h1 {
+      color: #ff2b2b;
+      font-size: 3rem;
+    }
+    .platforms {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .platforms img {
+      height: 40px;
+      filter: brightness(0.8);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(255, 43, 43, 0.3);
+    }
+    .bio-section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    .bio-section a {
+      color: #ff2b2b;
+      text-decoration: none;
     }
     footer {
-      margin-top: auto;
+      background: #111;
+      text-align: center;
       padding: 1rem;
-      font-size: 0.8rem;
-      color: #555;
-    }
-
-    /* Scanline animation */
-    @keyframes scanline-move {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 10px; }
-    }
-
-    /* Glitch overlay */
-    .glitch-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: #0a0a0a;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ff2b2b;
-      font-size: 2rem;
-      font-family: monospace;
-      animation: glitch-move 0.3s infinite alternate, glitch-fade 2s forwards;
-    }
-    .glitch-overlay::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/vhs-static.gif') center center / cover no-repeat;
-      opacity: 0.2;
-      pointer-events: none;
-      z-index: -1;
-      animation: glitch-flash 1s ease-in-out;
-    }
-    .glitch-overlay span {
-      animation: glitch-text 0.8s infinite;
-      position: relative;
-    }
-    @keyframes glitch-fade {
-      0% { opacity: 1; }
-      10% { opacity: 0.8; }
-      20% { opacity: 0.6; }
-      30% { opacity: 1; }
-      40% { opacity: 0.9; }
-      60% { opacity: 0.7; }
-      80% { opacity: 1; }
-      100% { opacity: 0; display: none; }
-    }
-    @keyframes glitch-text {
-      0% { text-shadow: 2px 0 red, -2px 0 blue; }
-      20% { text-shadow: -2px -1px red, 2px 1px blue; }
-      40% { text-shadow: 2px 1px red, -2px -1px blue; }
-      60% { text-shadow: -2px 0 red, 2px 0 blue; }
-      80% { text-shadow: 1px -2px red, -1px 2px blue; }
-      100% { text-shadow: 2px 0 red, -2px 0 blue; }
-    }
-    @keyframes glitch-move {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-1px, 1px); }
-      80% { transform: translate(1px, -1px); }
-      100% { transform: translate(0); }
-    }
-    @keyframes glitch-flash {
-      0%, 100% { opacity: 1; }
-      10% { opacity: 0.7; }
-      20% { opacity: 0.3; }
-      30% { opacity: 1; }
+      font-size: 0.9rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo" />
+    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="sales-and-acquisitions.html">Sales and Acquisitions</a>
+    </nav>
   </header>
-  <main>
+
+  <div class="hero">
     <h1>Deep Web Films Distribution</h1>
-    <p>We’re a boutique horror film distributor respecting your vision. Get your film on Blu-ray and streaming platforms — no hidden fees, no interference.</p>
-    <a href="sales-and-acquisitions.html" class="button" onclick="triggerGlitch(event)">Submit Your Film</a>
-  </main>
+    <div class="platforms">
+  <img src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/tubi.png" alt="Tubi">
+  <img src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/prime-video.png" alt="Amazon Prime">
+  <img src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/mubi.png" alt="Mubi">
+  <img src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/shudder.png" alt="Shudder">
+</div>
+  </div>
+
+  <div class="gallery">
+  <img src="https://images.unsplash.com/photo-1605433249411-82d206d6e55d?auto=format&fit=crop&w=400&q=80" alt="Cinema 1">
+  <img src="https://images.unsplash.com/photo-1598899134739-24c46e2306a4?auto=format&fit=crop&w=400&q=80" alt="Cinema 2">
+  <img src="https://images.unsplash.com/photo-1582572331578-7d9f43c0c3b4?auto=format&fit=crop&w=400&q=80" alt="Cinema 3">
+</div>
+
+  <div class="bio-section" id="about">
+    <p>We are a boutique label and treat our clients as friends. Every project we take on is handled with genuine care, attention, and mutual respect.</p>
+    <p style="font-size: 1.25rem; font-weight: 500; line-height: 1.6;">Founded by <a href="https://www.imdb.com/name/nm5594597/" target="_blank">Stephen Gaffney</a>, Deep Web Films Distribution brings fearless, uncompromising horror to international audiences. Our catalogue represents the boldest voices in independent cinema.</p>
+    <p>We started with a micro-budget feature — <em>Bully</em> — and grew into working on major productions for platforms like Netflix. That journey fuels our mission: to help emerging filmmakers break through and get noticed.</p>
+    <p>Your film means as much to us as it does to you. As a filmmaker myself, I understand the blood, sweat, and tears that go into making a film. With Deep Web Films Distribution, we’ll work with you to get your story out there — and ensure it reaches the audiences it deserves.</p>
+  </div>
+
   <footer>
     &copy; 2025 Deep Web Films. All rights reserved.
   </footer>
-
-  <audio id="glitch-sound" autoplay style="display:none">
-    <source src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/glitch.mp3" type="audio/mpeg" />
-    <source src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/crackle.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script>
-    function triggerGlitch(e) {
-      e.preventDefault();
-      const overlay = document.createElement('div');
-      overlay.className = 'glitch-overlay';
-      overlay.innerHTML = '<span>DECODING FOOTAGE...</span>';
-      document.body.appendChild(overlay);
-      const audio = document.getElementById('glitch-sound');
-      if (audio) {
-        audio.currentTime = 0;
-        audio.play();
-      }
-      setTimeout(() => {
-        overlay.remove();
-        window.location.href = e.currentTarget.href;
-      }, 2000);
-    }
-  </script>
 </body>
 </html>
