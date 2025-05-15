@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sales and Acquisitions – Deep Web Films</title>
+  <link rel="icon" href="deepwebfilms-logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      background-color: #000;
+      overflow-x: hidden;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      color: #f2f2f2;
+      background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+      background-image: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/scanlines.png');
+      background-size: cover;
+      background-blend-mode: overlay;
+      animation: scanline-move 3s linear infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      justify-content: center;
+      padding: 2rem;
+    }
+    header {
+      margin-bottom: 2rem;
+    }
+    header img.logo {
+      height: 100px;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #ff2b2b;
+      margin: 0 0 1rem;
+    }
+    p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      line-height: 1.5;
+      margin: 0 0 1rem;
+      color: #ccc;
+    }
+    a.email-link {
+      color: #ff2b2b;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+    a.email-link:hover {
+      text-decoration: underline;
+    }
+    .disclaimer {
+      font-weight: bold;
+      margin-top: 2rem;
+      color: #ff2b2b;
+      font-size: 1.1rem;
+    }
+    button.back-button {
+      margin-top: 3rem;
+      font-size: 1rem;
+      background-color: #222;
+      color: #f2f2f2;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button.back-button:hover {
+      background-color: #ff2b2b;
+    }
+    @keyframes scanline-move {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo" />
+  </header>
+
+  <h1>Sales &amp; Acquisitions</h1>
+  <p>If you’d like to submit a film for distribution consideration, please send an email with your project details and supporting materials.</p>
+  <p>Please include:</p>
+  <ul style="max-width:700px; color:#ccc; text-align:left; margin: 0 auto 1rem;">
+    <li>Brief synopsis</li>
+    <li>Runtime / length of the film</li>
+    <li>Trailer link (if available)</li>
+    <li>IMDb page (if available)</li>
+  </ul>
+  <a href="mailto:stephen@deepwebfilms.info?subject=Film Submission" class="email-link">📩 Email Your Submission to stephen@deepwebfilms.info</a>
+
+  <p class="disclaimer">WE NEVER ASK FILMMAKERS FOR MONEY UP FRONT</p>
+
+  <button class="back-button" onclick="location.href='index.html'">← Back to Home</button>
+</body>
+</html>
