@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Stephen Gaffney</title>
+  <link rel="icon" href="deepwebfilms-logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      background-color: #000;
+      font-family: 'Roboto', sans-serif;
+      color: #f2f2f2;
+    }
+    body {
+      background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+      background-image: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/scanlines.png');
+      background-size: cover;
+      background-blend-mode: overlay;
+      animation: scanline-move 3s linear infinite;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #ff2b2b;
+      animation: glitchText 8s infinite linear;
+    }
+    .bio {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border: 1px solid #222;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    .back-button {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto 0;
+      padding: 0.8rem 1.5rem;
+      background: #c00;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+    }
+    .back-button:hover {
+      background: #ff2b2b;
+    }
+    @keyframes scanline-move {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 10px; }
+    }
+    @keyframes glitchText {
+      0%   { text-shadow: none; }
+      5%   { text-shadow: 2px 0 red; }
+      6%   { text-shadow: none; }
+      7%   { text-shadow: -2px 0 cyan; }
+      8%   { text-shadow: none; }
+      25%  { text-shadow: 2px 0 red; }
+      26%  { text-shadow: none; }
+      27%  { text-shadow: -2px 0 cyan; }
+      28%  { text-shadow: none; }
+      60%  { text-shadow: 2px 0 red; }
+      61%  { text-shadow: none; }
+      62%  { text-shadow: -2px 0 cyan; }
+      63%  { text-shadow: none; }
+      100% { text-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>About Stephen Gaffney</h1>
+  </header>
+  <section class="bio">
+    <p>
+      Stephen Gaffney is an Irish filmmaker known for his raw, unapologetic style and fearless exploration of dark subject matter. From micro-budget horror beginnings to working on high-end Netflix productions, his voice remains uniquely personal and provocatively political.
+    </p>
+    <p>
+      Gaffney wrote and directed the underground hit <em>Red Room</em> (2017), the hard-hitting social drama <em>Bully</em> (2021), and the heroin-fueled crime thriller <em>Class A</em> (2023). His films are characterized by their ultra-realistic tone, emotionally charged performances, and unflinching depiction of violence, addiction, and psychological trauma.
+    </p>
+    <p>
+      Outside of narrative features, he has directed impactful true crime documentaries such as <em>The Kinahan Cartel</em>, and served as Supervising Editor on the global Netflix docuseries <em>McGregor Forever</em> (2023).
+    </p>
+    <p>
+      In addition to filmmaking, Gaffney is the founder of <strong>Deep Web Films</strong>, a boutique horror distribution label championing independent and underground voices. He actively attends and distributes films at major film markets, including the <strong>Cannes Film Festival</strong>, Berlin’s <strong>European Film Market</strong>, and other international showcases.
+    </p>
+    <p>
+      With a growing international profile, Gaffney continues to develop projects that confront, disturb, and provoke — marking him as one of the boldest and most authentic voices in modern Irish cinema.
+    </p>
+  </section>
+  <a href="index.html" class="back-button">← Back to Deep Web Films</a>
+</body>
+</html>
