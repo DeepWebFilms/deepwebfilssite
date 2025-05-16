@@ -10,22 +10,93 @@
     html, body {
       margin: 0; padding: 0;
       background-color: #000;
-      overflow-x: hidden;
-      height: 100%;
       font-family: 'Roboto', sans-serif;
       color: #f2f2f2;
+    }
+
+    body {
       background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
       background-image: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/scanlines.png');
       background-size: cover;
       background-blend-mode: overlay;
       animation: scanline-move 3s linear infinite;
+    }
+
+    main {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      min-height: 100vh;
       justify-content: center;
+      min-height: 100vh;
       padding: 2rem;
+      text-align: center;
+    }
+
+    header img.logo {
+      height: 120px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff2b2b;
+      animation: glitchText 8s infinite linear;
+    }
+
+    p, li {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 1rem;
+      color: #ccc;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem auto 2rem;
+      color: #999;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .submit-button {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+      background: #c00;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .submit-button:hover {
+      background-color: #ff2b2b;
+    }
+
+    @keyframes scanline-move {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 10px; }
+    }
+
+    @keyframes glitchText {
+      0%   { text-shadow: none; }
+      5%   { text-shadow: 2px 0 red; }
+      6%   { text-shadow: none; }
+      7%   { text-shadow: -2px 0 cyan; }
+      8%   { text-shadow: none; }
+      25%  { text-shadow: 2px 0 red; }
+      26%  { text-shadow: none; }
+      27%  { text-shadow: -2px 0 cyan; }
+      28%  { text-shadow: none; }
+      60%  { text-shadow: 2px 0 red; }
+      61%  { text-shadow: none; }
+      62%  { text-shadow: -2px 0 cyan; }
+      63%  { text-shadow: none; }
+      100% { text-shadow: none; }
     }
 
     #overlay {
@@ -51,21 +122,20 @@
       font-family: monospace; font-size: 14px;
       color: #fff;
     }
-    .rec-indicator .rec-text { color: #fff; margin-right: 5px; }
+    .rec-indicator .rec-text { margin-right: 5px; }
     .rec-indicator .rec-dot {
       color: red;
       animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      50.1%, 100% { opacity: 0; }
     }
     .timestamp {
       position: absolute; top: 10px; right: 10px;
       font-family: monospace; font-size: 14px;
       color: #fff;
     }
-
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.1%, 100% { opacity: 0; }
+    }
     @keyframes overlayAnim {
       0%   { opacity: 1; transform: scale(1); }
       3%   { opacity: 0; }
@@ -74,95 +144,6 @@
       9%   { opacity: 1; }
       15%  { opacity: 1; transform: scale(1); }
       100% { opacity: 0; transform: scale(1.3); }
-    }
-
-    header img.logo {
-      height: 120px;
-      display: block;
-      margin: 0 auto 1.5rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #ff2b2b;
-      animation: glitchText 8s infinite linear;
-    }
-
-    p, li {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 1rem;
-      color: #ccc;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 1.5rem auto 2rem;
-      color: #999;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    a.email-link, .submit-button {
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.2rem;
-      text-decoration: none;
-      background: #c00;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      cursor: pointer;
-      display: inline-block;
-      margin-top: 1rem;
-    }
-
-    .submit-button:hover {
-      background-color: #ff2b2b;
-    }
-
-    .disclaimer {
-      font-weight: bold;
-      color: #ff2b2b;
-      margin-top: 2rem;
-    }
-
-    .back-button {
-      margin-top: 2rem;
-      padding: 0.75rem 1.5rem;
-      background: #222;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .back-button:hover {
-      background-color: #ff2b2b;
-    }
-
-    @keyframes scanline-move {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 10px; }
-    }
-
-    @keyframes glitchText {
-      0%   { text-shadow: none; }
-      5%   { text-shadow: 2px 0 red; }
-      6%   { text-shadow: none; }
-      7%   { text-shadow: -2px 0 cyan; }
-      8%   { text-shadow: none; }
-      25%  { text-shadow: 2px 0 red; }
-      26%  { text-shadow: none; }
-      27%  { text-shadow: -2px 0 cyan; }
-      28%  { text-shadow: none; }
-      60%  { text-shadow: 2px 0 red; }
-      61%  { text-shadow: none; }
-      62%  { text-shadow: -2px 0 cyan; }
-      63%  { text-shadow: none; }
-      100% { text-shadow: none; }
     }
   </style>
 </head>
@@ -176,39 +157,41 @@
     </div>
   </div>
 
-  <header>
-    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo" />
-  </header>
+  <main>
+    <header>
+      <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo" />
+    </header>
 
-  <h1>Deep Web Films Distribution</h1>
-  <p>Your film, untouched — no producer interference. The way you envisioned it. For a worldwide audience.</p>
+    <h1>Deep Web Films Distribution</h1>
+    <p>Your film, untouched — no producer interference. The way you envisioned it. For a worldwide audience.</p>
 
-  <p>We help bold indie horror reach global audiences — uncensored and unfiltered.</p>
-  <p>No upfront fees. No creative interference. Just fearless distribution.</p>
-  <ul>
-    <li>• Worldwide streaming reach</li>
-    <li>• Boutique Blu-ray distribution</li>
-    <li>• Niche horror audience targeting</li>
-    <li>• Transparent, filmmaker-first deals</li>
-  </ul>
+    <p>We help bold indie horror reach global audiences — uncensored and unfiltered.</p>
+    <p>No upfront fees. No creative interference. Just fearless distribution.</p>
+    <ul>
+      <li>• Worldwide streaming reach</li>
+      <li>• Boutique Blu-ray distribution</li>
+      <li>• Niche horror audience targeting</li>
+      <li>• Transparent, filmmaker-first deals</li>
+    </ul>
 
-  <a href="sales-and-acquisitions.html" class="submit-button" onclick="triggerGlitch(event)">Submit Your Film</a>
+    <a href="sales-and-acquisitions.html" class="submit-button" onclick="triggerGlitch(event)">Submit Your Film</a>
+  </main>
 
   <audio id="glitch-sound" preload="auto" src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/glitch.mp3" type="audio/mpeg"></audio>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var overlay = document.getElementById('overlay');
-      overlay.addEventListener('animationend', function() {
-        overlay.parentNode.removeChild(overlay);
-      });
+      const overlay = document.getElementById('overlay');
+      overlay.addEventListener('animationend', () => overlay.remove());
     });
 
     function triggerGlitch(e) {
       e.preventDefault();
       const audio = document.getElementById('glitch-sound');
-      audio.currentTime = 0;
-      audio.play();
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
       setTimeout(() => {
         window.location.href = e.currentTarget.href;
       }, 500);
@@ -216,3 +199,4 @@
   </script>
 </body>
 </html>
+
