@@ -2,134 +2,211 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Deep Web Films Distribution</title>
+  <link rel="icon" href="deepwebfilms-logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: #000; color: #fff; font-family: Arial, sans-serif; }
-    * { box-sizing: border-box; }
-    /* Full-screen overlay for glitch intro/transition */
-    #overlay {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
       background: #000;
-      display: flex; justify-content: center; align-items: center;
+      color: #f2f2f2;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+      background-image: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/scanlines.png');
+      background-size: cover;
+      background-blend-mode: overlay;
+      animation: scanline-move 3s linear infinite;
+      text-align: center;
+      height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    header img {
+      height: 130px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #ff2b2b;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 1rem;
+      color: #ccc;
+    }
+
+    .button {
+      padding: 1rem 2rem;
+      background: #ff2b2b;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+      display: inline-block;
+      margin-top: 2rem;
+    }
+
+    .button:hover {
+      background: #cc1f1f;
+    }
+
+    .sub-features {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .alt-line {
+      font-size: 1rem;
+      color: #ccc;
+      margin: 0.5rem auto;
+      max-width: 600px;
+    }
+
+    .highlights {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem auto 2rem;
+      color: #999;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .highlights li {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      color: #555;
+      font-size: 0.8rem;
+    }
+
+    @keyframes scanline-move {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 10px; }
+    }
+
+    /* Glitch overlay */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       flex-direction: column;
       z-index: 9999;
       transition: opacity 0.5s ease;
     }
+
     .overlay-text {
       color: #0f0;
-      font-family: "Courier New", Courier, monospace;
+      font-family: monospace;
       font-size: 1.5em;
       text-shadow: 0 0 5px #0f0;
+      animation: flicker 1.5s infinite;
     }
-    /* Glitch flicker animation for overlay text */
+
     @keyframes flicker {
-      0%   { opacity: 1; }
-      10%  { opacity: 0.6; transform: translate(1px, 0) skewX(10deg); }
-      11%  { opacity: 1; transform: none; }
-      12%  { opacity: 0.6; transform: translate(-1px, 0) skewX(-10deg); }
-      13%  { opacity: 1; transform: none; }
-      20%  { opacity: 0.8; }
-      22%  { opacity: 1; }
-      23%  { opacity: 0.8; }
-      25%  { opacity: 1; }
+      0% { opacity: 1; }
+      10% { opacity: 0.6; transform: translate(1px, 0) skewX(10deg); }
+      11% { opacity: 1; transform: none; }
+      12% { opacity: 0.6; transform: translate(-1px, 0) skewX(-10deg); }
+      13% { opacity: 1; transform: none; }
+      20% { opacity: 0.8; }
+      22% { opacity: 1; }
+      23% { opacity: 0.8; }
+      25% { opacity: 1; }
       100% { opacity: 1; }
     }
-    .overlay-text { animation: flicker 1.5s infinite; }
-    /* Glitch transition flash (background flashes white twice) */
+
     @keyframes glitchTransition {
-      0%   { background: #000; }
-      20%  { background: #fff; }
-      21%  { background: #000; }
-      23%  { background: #fff; }
-      25%  { background: #000; }
+      0% { background: #000; }
+      20% { background: #fff; }
+      21% { background: #000; }
+      23% { background: #fff; }
+      25% { background: #000; }
       100% { background: #000; }
-    }
-    /* Page content styling */
-    .content { max-width: 600px; margin: 0 auto; padding: 2rem; text-align: center; }
-    .logo { display: block; margin: 0 auto 1rem; max-width: 300px; }
-    h1 { font-size: 2em; margin: 0.5em 0; text-align: center; }
-    .tagline {
-      color: #ccc;
-      font-size: 1.1em;
-      margin-bottom: 2em;
-      text-align: center;
-    }
-    /* Button styling */
-    .button {
-      display: inline-block;
-      padding: 0.75em 1.5em;
-      font-size: 1em;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      transition: background 0.3s, transform 0.1s;
-    }
-    .submit-button {
-      background: #b00;
-      color: #fff;
-    }
-    .submit-button:hover {
-      background: #e00;
-      transform: scale(1.05);
-    }
-    .submit-button:active {
-      transform: scale(0.98);
     }
   </style>
 </head>
-<body class="home-page">
+<body>
   <!-- Glitch intro overlay -->
   <div id="overlay">
     <div class="overlay-text">DECODING FOOTAGE...</div>
   </div>
 
-  <div class="content">
-    <img src="deepwebfilms-logo.png" alt="Deep Web Films Distribution Logo" class="logo" />
-    <h1>Deep Web Films Distribution</h1>
-    <p class="tagline">
-      <em>Your film, untouched &mdash; no producer interference. The way you envisioned it. For a worldwide audience.</em>
-    </p>
-    <a href="sales-and-acquisitions.html" class="button submit-button">Submit Your Film</a>
+  <header>
+    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" />
+  </header>
+
+  <h1>Deep Web Films Distribution</h1>
+
+  <p><em>Your film, untouched — no producer interference. The way you envisioned it. For a worldwide audience.</em></p>
+
+  <div class="sub-features">
+    <p class="alt-line"><strong>We help bold indie horror reach global audiences — uncensored and unfiltered.</strong></p>
+    <p class="alt-line">No upfront fees. No creative interference. Just fearless distribution.</p>
+    <ul class="highlights">
+      <li>• Worldwide streaming reach</li>
+      <li>• Boutique Blu-ray distribution</li>
+      <li>• Niche horror audience targeting</li>
+      <li>• Transparent, filmmaker-first deals</li>
+    </ul>
   </div>
 
-  <!-- Glitch sound effect (audio is small and preloaded) -->
-  <audio id="glitchAudio" preload="auto" src="data:audio/mpeg;base64,//UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0Yf//AAD/AAD/..." ></audio>
+  <a href="sales-and-acquisitions.html" class="button" onclick="triggerGlitch(event)">Submit Your Film</a>
+
+  <footer>&copy; 2025 Deep Web Films. All rights reserved.</footer>
+
+  <audio id="glitch-sound" preload="auto" src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/glitch.mp3" type="audio/mpeg"></audio>
 
   <script>
-    // Fade out and remove the intro overlay after a short delay
-    window.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
+    // Fade out and remove the intro overlay after delay
+    window.addEventListener('DOMContentLoaded', function () {
+      setTimeout(() => {
         document.getElementById('overlay').style.opacity = '0';
       }, 1500);
-      setTimeout(function() {
-        var overlay = document.getElementById('overlay');
+      setTimeout(() => {
+        const overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
-        overlay.style.opacity = '1';  // reset for potential reuse
+        overlay.style.opacity = '1';
       }, 2000);
     });
 
-    // Glitch transition and audio when clicking "Submit Your Film"
-    document.querySelector('.submit-button').addEventListener('click', function(e) {
+    function triggerGlitch(e) {
       e.preventDefault();
-      var overlay = document.getElementById('overlay');
-      var overlayText = document.querySelector('.overlay-text');
-      // Hide the overlay text during transition
-      overlayText.style.display = 'none';
-      // Show overlay and trigger glitch flash
+      const overlay = document.getElementById('overlay');
+      const text = document.querySelector('.overlay-text');
+      text.style.display = 'none';
       overlay.style.display = 'flex';
-      void overlay.offsetWidth;  // force reflow to restart CSS animation
+      void overlay.offsetWidth;
       overlay.style.animation = 'glitchTransition 0.5s forwards';
-      // Play crackling glitch sound
-      document.getElementById('glitchAudio').play();
-      // After the short glitch, navigate to the contact page
-      setTimeout(function() {
-        window.location.href = 'sales-and-acquisitions.html';
+      document.getElementById('glitch-sound').play();
+      setTimeout(() => {
+        window.location.href = e.currentTarget.href;
       }, 500);
-    });
+    }
   </script>
 </body>
 </html>
+
