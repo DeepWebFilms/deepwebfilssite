@@ -174,7 +174,7 @@
       <li>• Transparent, filmmaker-first deals</li>
     </ul>
 
-    <a href="sales-and-acquisitions.html" class="submit-button" onclick="triggerGlitch(event)">Submit Your Film</a>
+    <button class="submit-button" onclick="triggerGlitch(event)">Submit Your Film</button>
   </main>
 
   <audio id="glitch-sound" preload="auto" src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/glitch.mp3" type="audio/mpeg"></audio>
@@ -193,10 +193,11 @@
         audio.play();
       }
       setTimeout(() => {
-        window.location.href = e.currentTarget.href;
+        window.location.href = 'sales-and-acquisitions.html';
       }, 500);
     }
   </script>
 </body>
 </html>
+
 
