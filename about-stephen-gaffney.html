@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Stephen Gaffney</title>
+  <title>About Deep Web Films</title>
   <link rel="icon" href="deepwebfilms-logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
@@ -28,6 +28,7 @@
       padding: 1rem 0;
       background-color: rgba(0, 0, 0, 0.8);
       border-bottom: 1px solid #222;
+      animation: glitchText 3s infinite;
     }
     nav a {
       color: #fff;
@@ -40,6 +41,10 @@
     header {
       text-align: center;
       padding: 2rem 1rem;
+    }
+    header img.logo {
+      height: 120px;
+      margin-bottom: 1.5rem;
     }
     header h1 {
       font-size: 2.5rem;
@@ -78,20 +83,12 @@
       100% { background-position: 0 10px; }
     }
     @keyframes glitchText {
-      0%   { text-shadow: none; }
+      0%, 100% { text-shadow: none; }
       5%   { text-shadow: 2px 0 red; }
-      6%   { text-shadow: none; }
-      7%   { text-shadow: -2px 0 cyan; }
-      8%   { text-shadow: none; }
-      25%  { text-shadow: 2px 0 red; }
-      26%  { text-shadow: none; }
-      27%  { text-shadow: -2px 0 cyan; }
-      28%  { text-shadow: none; }
-      60%  { text-shadow: 2px 0 red; }
-      61%  { text-shadow: none; }
-      62%  { text-shadow: -2px 0 cyan; }
-      63%  { text-shadow: none; }
-      100% { text-shadow: none; }
+      10%  { text-shadow: -2px 0 cyan; }
+      15%  { text-shadow: 2px 0 red; }
+      20%  { text-shadow: -2px 0 cyan; }
+      25%  { text-shadow: none; }
     }
   </style>
 </head>
@@ -102,11 +99,12 @@
     <a href="sales-and-acquisitions.html">Contact</a>
   </nav>
   <header>
-    <h1>About Stephen Gaffney</h1>
+    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo">
+    <h1>About Deep Web Films</h1>
   </header>
   <section class="bio">
     <p>
-      Stephen Gaffney is an Irish filmmaker known for his raw, unapologetic style and fearless exploration of dark subject matter. From micro-budget horror beginnings to working on high-end Netflix productions, his voice remains uniquely personal and provocatively political.
+      Stephen Gaffney, The CEO of Deep Web Films Distribution, is an Irish filmmaker known for his raw, unapologetic style and fearless exploration of dark subject matter. From micro-budget horror beginnings to working on high-end Netflix productions, his voice remains uniquely personal and provocatively political.
     </p>
     <p>
       Gaffney wrote and directed the underground hit <em>Red Room</em> (2017), the hard-hitting social drama <em>Bully</em> (2021), and the heroin-fueled crime thriller <em>Class A</em> (2023). His films are characterized by their ultra-realistic tone, emotionally charged performances, and unflinching depiction of violence, addiction, and psychological trauma.
