@@ -13,7 +13,6 @@
       font-family: 'Roboto', sans-serif;
       color: #f2f2f2;
     }
-
     body {
       background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
       background-image: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/scanlines.png');
@@ -21,7 +20,6 @@
       background-blend-mode: overlay;
       animation: scanline-move 3s linear infinite;
     }
-
     nav {
       display: flex;
       justify-content: center;
@@ -29,93 +27,72 @@
       padding: 1rem 0;
       background-color: rgba(0, 0, 0, 0.8);
       border-bottom: 1px solid #222;
+      animation: glitchText 3s infinite;
     }
-
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
     }
-
     nav a:hover {
       color: #ff2b2b;
     }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem;
+    header {
       text-align: center;
+      padding: 4rem 1rem 2rem;
     }
-
     header img.logo {
       height: 120px;
       margin-bottom: 1.5rem;
     }
-
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: #ff2b2b;
       animation: glitchText 8s infinite linear;
     }
-
     p, li {
       font-size: 1.1rem;
+      color: #ccc;
       max-width: 700px;
       margin: 0 auto 1rem;
-      color: #ccc;
     }
-
     ul {
       list-style: none;
       padding: 0;
-      margin: 1.5rem auto 2rem;
-      color: #999;
-      font-size: 0.95rem;
+      margin: 2rem auto;
       line-height: 1.6;
+      color: #aaa;
     }
-
     .submit-button {
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.2rem;
-      text-decoration: none;
-      background: #c00;
-      border: none;
+      background: #ff2b2b;
       padding: 0.75rem 1.5rem;
       border-radius: 4px;
-      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
       display: inline-block;
-      margin-top: 1rem;
+      margin: 2rem auto;
     }
-
     .submit-button:hover {
-      background-color: #ff2b2b;
+      background: #c00;
     }
-
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 2rem;
+    }
     @keyframes scanline-move {
       0% { background-position: 0 0; }
       100% { background-position: 0 10px; }
     }
-
     @keyframes glitchText {
-      0%   { text-shadow: none; }
+      0%, 100% { text-shadow: none; }
       5%   { text-shadow: 2px 0 red; }
-      6%   { text-shadow: none; }
-      7%   { text-shadow: -2px 0 cyan; }
-      8%   { text-shadow: none; }
-      25%  { text-shadow: 2px 0 red; }
-      26%  { text-shadow: none; }
-      27%  { text-shadow: -2px 0 cyan; }
-      28%  { text-shadow: none; }
-      60%  { text-shadow: 2px 0 red; }
-      61%  { text-shadow: none; }
-      62%  { text-shadow: -2px 0 cyan; }
-      63%  { text-shadow: none; }
-      100% { text-shadow: none; }
+      10%  { text-shadow: -2px 0 cyan; }
+      15%  { text-shadow: 2px 0 red; }
+      20%  { text-shadow: -2px 0 cyan; }
+      25%  { text-shadow: none; }
     }
   </style>
 </head>
@@ -123,17 +100,20 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="about-stephen-gaffney.html">About</a>
+    <a href="why-choose-us.html">Why Choose Us</a>
     <a href="sales-and-acquisitions.html">Contact</a>
   </nav>
-  <main>
-    <header>
-      <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo" />
-    </header>
 
+  <header>
+    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo" />
     <h1>Sales & Acquisitions</h1>
-    <p>Contact <a href="mailto:stephen@deepwebfilms.info" style="color:#ff2b2b;">stephen@deepwebfilms.info</a> or <a href="mailto:stephen@deepwebfilms.info" class="submit-button" style="margin-left:10px;">click here</a></p>
+  </header>
 
-    <p>Include the following:</p>
+  <main style="text-align:center;">
+    <p>Please email your film submissions to <a href="mailto:stephen@deepwebfilms.info">stephen@deepwebfilms.info</a></p>
+    <p>Or <a href="mailto:stephen@deepwebfilms.info" class="submit-button">Click Here</a></p>
+
+    <p>Include the following in your submission:</p>
     <ul>
       <li>• Brief synopsis</li>
       <li>• Runtime</li>
@@ -152,9 +132,10 @@
     </ul>
 
     <p>If you are unsure about any of this, do not hesitate to ask for guidance.</p>
-
-    <button onclick="window.location.href='index.html'" class="submit-button">← Back</button>
   </main>
+
+  <footer>
+    &copy; 2025 Deep Web Films. All rights reserved.
+  </footer>
 </body>
 </html>
-
