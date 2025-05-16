@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sales and Acquisitions – Deep Web Films</title>
+  <title>Deep Web Films Distribution</title>
   <link rel="icon" href="deepwebfilms-logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
@@ -26,6 +26,54 @@
       min-height: 100vh;
       justify-content: center;
       padding: 2rem;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000;
+      z-index: 10000;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: overlayAnim 10s linear forwards;
+    }
+
+    #overlay .viewfinder {
+      position: absolute;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .rec-indicator {
+      position: absolute; top: 10px; left: 10px;
+      font-family: monospace; font-size: 14px;
+      color: #fff;
+    }
+    .rec-indicator .rec-text { color: #fff; margin-right: 5px; }
+    .rec-indicator .rec-dot {
+      color: red;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.1%, 100% { opacity: 0; }
+    }
+    .timestamp {
+      position: absolute; top: 10px; right: 10px;
+      font-family: monospace; font-size: 14px;
+      color: #fff;
+    }
+
+    @keyframes overlayAnim {
+      0%   { opacity: 1; transform: scale(1); }
+      3%   { opacity: 0; }
+      5%   { opacity: 1; }
+      7%   { opacity: 0; transform: scale(1); }
+      9%   { opacity: 1; }
+      15%  { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.3); }
     }
 
     header img.logo {
@@ -56,11 +104,22 @@
       line-height: 1.6;
     }
 
-    a.email-link {
-      color: #ff2b2b;
+    a.email-link, .submit-button {
+      color: #fff;
       font-weight: bold;
       font-size: 1.2rem;
       text-decoration: none;
+      background: #c00;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .submit-button:hover {
+      background-color: #ff2b2b;
     }
 
     .disclaimer {
@@ -108,28 +167,43 @@
   </style>
 </head>
 <body>
+  <div id="overlay">
+    <div class="viewfinder">
+      <div class="rec-indicator">
+        <span class="rec-text">REC</span><span class="rec-dot">●</span>
+      </div>
+      <div class="timestamp">00:00:00</div>
+    </div>
+  </div>
+
   <header>
     <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo" />
   </header>
 
-  <h1>Sales &amp; Acquisitions</h1>
-  <p>If you’d like to submit a film for distribution consideration, please email us with your project details and supporting materials. Include:</p>
+  <h1>Deep Web Films Distribution</h1>
+  <p>Your film, untouched — no producer interference. The way you envisioned it. For a worldwide audience.</p>
+
+  <p>We help bold indie horror reach global audiences — uncensored and unfiltered.</p>
+  <p>No upfront fees. No creative interference. Just fearless distribution.</p>
   <ul>
-    <li>Brief synopsis</li>
-    <li>Runtime / length of the film</li>
-    <li>Trailer link (if available)</li>
-    <li>IMDb page (if available)</li>
+    <li>• Worldwide streaming reach</li>
+    <li>• Boutique Blu-ray distribution</li>
+    <li>• Niche horror audience targeting</li>
+    <li>• Transparent, filmmaker-first deals</li>
   </ul>
 
-  <a href="mailto:stephen@deepwebfilms.info?subject=Film Submission" class="email-link" onclick="triggerGlitch(event)">📩 Email Your Submission</a>
-
-  <p class="disclaimer">WE NEVER ASK FILMMAKERS FOR MONEY UP FRONT</p>
-
-  <button class="back-button" onclick="location.href='index.html'">← Back to Home</button>
+  <a href="sales-and-acquisitions.html" class="submit-button" onclick="triggerGlitch(event)">Submit Your Film</a>
 
   <audio id="glitch-sound" preload="auto" src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/glitch.mp3" type="audio/mpeg"></audio>
 
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var overlay = document.getElementById('overlay');
+      overlay.addEventListener('animationend', function() {
+        overlay.parentNode.removeChild(overlay);
+      });
+    });
+
     function triggerGlitch(e) {
       e.preventDefault();
       const audio = document.getElementById('glitch-sound');
