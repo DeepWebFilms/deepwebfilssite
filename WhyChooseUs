@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Choose Us – Deep Web Films</title>
+  <link rel="icon" href="deepwebfilms-logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      background-color: #000;
+      font-family: 'Roboto', sans-serif;
+      color: #f2f2f2;
+    }
+    body {
+      background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+      background-image: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/scanlines.png');
+      background-size: cover;
+      background-blend-mode: overlay;
+      animation: scanline-move 3s linear infinite;
+      padding: 2rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid #222;
+      animation: glitchText 3s infinite;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ff2b2b;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header img.logo {
+      height: 120px;
+      margin-bottom: 1.5rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #ff2b2b;
+      animation: glitchText 8s infinite linear;
+    }
+    .bio {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border: 1px solid #222;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    .submit-button {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto 0;
+      padding: 0.8rem 1.5rem;
+      background: #c00;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+    }
+    .submit-button:hover {
+      background: #ff2b2b;
+    }
+    @keyframes scanline-move {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 10px; }
+    }
+    @keyframes glitchText {
+      0%, 100% { text-shadow: none; }
+      5%   { text-shadow: 2px 0 red; }
+      10%  { text-shadow: -2px 0 cyan; }
+      15%  { text-shadow: 2px 0 red; }
+      20%  { text-shadow: -2px 0 cyan; }
+      25%  { text-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about-stephen-gaffney.html">About</a>
+    <a href="why-choose-us.html">Why Choose Us</a>
+    <a href="sales-and-acquisitions.html">Contact</a>
+  </nav>
+  <header>
+    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo">
+    <h1>Why Choose Us?</h1>
+  </header>
+  <section class="bio">
+    <p>Deep Web Films has emerged as a revolutionary platform dedicated to showcasing the most compelling indie and micro-budget films that deserve recognition. Our mission is to bring visibility to filmmakers whose unique artistic vision might otherwise remain unseen in the commercial landscape.</p>
+    <p>Are you an independent filmmaker struggling to find distribution for your passion project? Deep Web Films offers a specialized platform that understands and champions the artistic integrity of independent cinema. We believe that budget constraints should never limit creative expression or audience reach.</p>
+    <ul>
+      <li>• Professional distribution services tailored specifically for indie productions</li>
+      <li>• Targeted marketing to audiences hungry for authentic, boundary-pushing content</li>
+      <li>• Competitive revenue models that respect the filmmaker's creative investment</li>
+      <li>• Technical support for optimal presentation of your work</li>
+    </ul>
+    <p>Unlike mainstream distribution channels that prioritize commercial viability above all else, we celebrate artistic risk-taking and unique perspectives. We understand that some of the most important contributions to film history have come from independent voices working with limited resources but unlimited imagination.</p>
+    <p><strong>Connect With Us:</strong></p>
+    <a href="sales-and-acquisitions.html" class="submit-button">Get in Touch</a>
+    <p style="text-align:center; margin-top: 2rem;">Together, let's create a space where independent film can thrive and reach the audiences it deserves.</p>
+  </section>
+</body>
+</html>
