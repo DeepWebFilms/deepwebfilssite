@@ -22,6 +22,25 @@
       animation: scanline-move 3s linear infinite;
     }
 
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid #222;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ff2b2b;
+    }
+
     main {
       display: flex;
       flex-direction: column;
@@ -101,6 +120,11 @@
   </style>
 </head>
 <body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about-stephen-gaffney.html">About</a>
+    <a href="sales-and-acquisitions.html">Contact</a>
+  </nav>
   <main>
     <header>
       <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo" />
@@ -133,3 +157,4 @@
   </main>
 </body>
 </html>
+
