@@ -2,61 +2,193 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sales and Acquisitions – Deep Web Films</title>
-  <link rel="icon" type="image/png" href="deepwebfilms-logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap" rel="stylesheet">
+  <link rel="icon" href="deepwebfilms-logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Barlow Condensed', sans-serif;
-      background: #0a0a0a;
+    html, body {
+      margin: 0; padding: 0;
+      background-color: #000;
+      overflow-x: hidden;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
       color: #f2f2f2;
+      background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+      background-image: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/scanlines.png');
+      background-size: cover;
+      background-blend-mode: overlay;
+      animation: scanline-move 3s linear infinite;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 3rem 2rem;
       text-align: center;
+      min-height: 100vh;
+      justify-content: center;
+      padding: 2rem;
     }
-    a {
-      color: #ff2b2b;
-      text-decoration: none;
-      font-size: 1.2rem;
+
+    header {
+      margin-bottom: 2rem;
     }
-    a:hover {
-      text-decoration: underline;
+
+    header img.logo {
+      height: 120px;
+      display: block;
+      margin: 0 auto;
     }
+
     h1 {
-      color: #ff2b2b;
+      font-weight: 700;
       font-size: 2.5rem;
+      color: #ff2b2b;
       margin-bottom: 1rem;
     }
+
+    p, li {
+      font-size: 1.1rem;
+      max-width: 700px;
+      line-height: 1.5;
+      color: #ccc;
+    }
+
+    ul {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    a.email-link {
+      color: #ff2b2b;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
+    a.email-link:hover {
+      text-decoration: underline;
+    }
+
     .disclaimer {
       font-weight: bold;
       margin-top: 2rem;
       color: #ff2b2b;
       font-size: 1.1rem;
     }
-    .note {
-      color: #aaa;
-      margin-top: 1rem;
-      font-size: 0.9rem;
+
+    button.back-button {
+      margin-top: 3rem;
+      font-size: 1rem;
+      background-color: #222;
+      color: #f2f2f2;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button.back-button:hover {
+      background-color: #ff2b2b;
+    }
+
+    @keyframes scanline-move {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 10px; }
+    }
+
+    /* Glitch */
+    .glitch-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: #0a0a0a;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff2b2b;
+      font-size: 2rem;
+      font-family: monospace;
+      animation: glitch-move 0.3s infinite alternate, glitch-fade 2s forwards;
+    }
+
+    .glitch-overlay::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/vhs-static.gif') center center / cover no-repeat;
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .glitch-overlay span {
+      animation: glitch-text 0.8s infinite;
+      position: relative;
+    }
+
+    @keyframes glitch-fade {
+      0% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
+
+    @keyframes glitch-text {
+      0%, 100% { text-shadow: 2px 0 red, -2px 0 blue; }
+      50% { text-shadow: -2px 2px red, 2px -2px blue; }
+    }
+
+    @keyframes glitch-move {
+      0% { transform: translate(0); }
+      100% { transform: translate(-1px, 1px); }
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" class="logo" />
+  </header>
 
-  <h1>Sales & Acquisitions</h1>
-  <p>If you'd like to submit a film for distribution consideration, please click the button below. Your email app will open with the correct address pre-filled.</p>
+  <h1>Sales &amp; Acquisitions</h1>
+  <p>We treat our clients like friends, and your film like it’s our own.</p>
+  <p>Send us your submission for distribution consideration. Please include:</p>
+  <ul>
+    <li>Brief synopsis</li>
+    <li>Runtime / length of the film</li>
+    <li>Trailer link (if available)</li>
+    <li>IMDb page (if available)</li>
+  </ul>
 
-  <p>
-    <a href="mailto:stephen@deepwebfilms.info?subject=Film Submission&body=Hi%20Stephen%2C%0D%0A%0D%0AI'd%20like%20to%20submit%20my%20film%20for%20consideration.%20Here's%20a%20brief%20overview%3A%0D%0A%0D%0A%28Include%20synopsis%2C%20links%20to%20trailer%20if%20any%2C%20festivals%20played%2C%20etc.%29%0D%0A%0D%0ABest%2C%0D%0A%5BYour%20Name%5D">
-      📩 Submit Your Film via Email
-    </a>
-  </p>
+  <a href="mailto:stephen@deepwebfilms.info?subject=Film Submission" class="email-link" onclick="triggerGlitch(event)">
+    📩 Email Your Submission to stephen@deepwebfilms.info
+  </a>
 
   <p class="disclaimer">WE NEVER ASK FILMMAKERS FOR MONEY UP FRONT</p>
-  <p class="note">⚠️ Be sure to check your spam folder for replies from us.</p>
 
+  <button class="back-button" onclick="location.href='index.html'">← Back to Home</button>
+
+  <audio id="glitch-sound" autoplay style="display:none">
+    <source src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/glitch.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    function triggerGlitch(e) {
+      e.preventDefault();
+      const overlay = document.createElement('div');
+      overlay.className = 'glitch-overlay';
+      overlay.innerHTML = '<span>DECODING FOOTAGE...</span>';
+      document.body.appendChild(overlay);
+      const audio = document.getElementById('glitch-sound');
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+      setTimeout(() => {
+        overlay.remove();
+        window.location.href = e.currentTarget.href;
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
