@@ -2,136 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Web Films Distribution</title>
-  <link rel="icon" href="deepwebfilms-logo.png" type="image/png" />
-  <meta name="description" content="Boutique horror film distribution respecting your vision." />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      margin: 0; padding: 0;
-      background-color: #000;
-      color: #f2f2f2;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
-      background-image: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/scanlines.png');
-      background-size: cover;
-      background-blend-mode: overlay;
-      animation: scanline-move 3s linear infinite;
-      text-align: center;
-      height: 100vh;
-      display: flex;
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #000; color: #fff; font-family: Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    /* Full-screen overlay for glitch intro/transition */
+    #overlay {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000;
+      display: flex; justify-content: center; align-items: center;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow-x: hidden;
-    }
-
-    header img {
-      height: 130px;
-      margin-bottom: 1.5rem;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      color: #ff2b2b;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin-bottom: 2rem;
-      color: #ccc;
-    }
-
-    a.button {
-      padding: 1rem 2rem;
-      background: #ff2b2b;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-      transition: 0.3s;
-    }
-
-    a.button:hover {
-      background: #cc1f1f;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 20px;
-      color: #555;
-      font-size: 0.8rem;
-    }
-
-    @keyframes scanline-move {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 10px; }
-    }
-
-    .glitch-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #0a0a0a;
       z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-family: monospace;
-      color: #ff2b2b;
-      animation: glitch-fade 2s forwards;
+      transition: opacity 0.5s ease;
     }
-
-    .glitch-overlay::before {
-      content: "";
-      position: absolute;
-      width: 100%; height: 100%;
-      background: url('https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/vhs-static.gif') center / cover no-repeat;
-      opacity: 0.2;
+    .overlay-text {
+      color: #0f0;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.5em;
+      text-shadow: 0 0 5px #0f0;
     }
-
-    @keyframes glitch-fade {
-      0% { opacity: 1; }
-      100% { opacity: 0; display: none; }
+    /* Glitch flicker animation for overlay text */
+    @keyframes flicker {
+      0%   { opacity: 1; }
+      10%  { opacity: 0.6; transform: translate(1px, 0) skewX(10deg); }
+      11%  { opacity: 1; transform: none; }
+      12%  { opacity: 0.6; transform: translate(-1px, 0) skewX(-10deg); }
+      13%  { opacity: 1; transform: none; }
+      20%  { opacity: 0.8; }
+      22%  { opacity: 1; }
+      23%  { opacity: 0.8; }
+      25%  { opacity: 1; }
+      100% { opacity: 1; }
+    }
+    .overlay-text { animation: flicker 1.5s infinite; }
+    /* Glitch transition flash (background flashes white twice) */
+    @keyframes glitchTransition {
+      0%   { background: #000; }
+      20%  { background: #fff; }
+      21%  { background: #000; }
+      23%  { background: #fff; }
+      25%  { background: #000; }
+      100% { background: #000; }
+    }
+    /* Page content styling */
+    .content { max-width: 600px; margin: 0 auto; padding: 2rem; text-align: center; }
+    .logo { display: block; margin: 0 auto 1rem; max-width: 300px; }
+    h1 { font-size: 2em; margin: 0.5em 0; text-align: center; }
+    .tagline {
+      color: #ccc;
+      font-size: 1.1em;
+      margin-bottom: 2em;
+      text-align: center;
+    }
+    /* Button styling */
+    .button {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      font-size: 1em;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.1s;
+    }
+    .submit-button {
+      background: #b00;
+      color: #fff;
+    }
+    .submit-button:hover {
+      background: #e00;
+      transform: scale(1.05);
+    }
+    .submit-button:active {
+      transform: scale(0.98);
     }
   </style>
 </head>
-<body>
-  <header>
-    <img src="deepwebfilms-logo.png" alt="Deep Web Films Logo" />
-  </header>
+<body class="home-page">
+  <!-- Glitch intro overlay -->
+  <div id="overlay">
+    <div class="overlay-text">DECODING FOOTAGE...</div>
+  </div>
 
-  <h1>Deep Web Films Distribution</h1>
-  <p>We’re a boutique horror film distributor respecting your vision. Get your film on Blu-ray and streaming platforms — no hidden fees, no interference.</p>
+  <div class="content">
+    <img src="deepwebfilms-logo.png" alt="Deep Web Films Distribution Logo" class="logo" />
+    <h1>Deep Web Films Distribution</h1>
+    <p class="tagline">
+      <em>Your film, untouched &mdash; no producer interference. The way you envisioned it. For a worldwide audience.</em>
+    </p>
+    <a href="sales-and-acquisitions.html" class="button submit-button">Submit Your Film</a>
+  </div>
 
-  <a href="sales-and-acquisitions.html" class="button" onclick="triggerGlitch(event)">Submit Your Film</a>
-
-  <footer>&copy; 2025 Deep Web Films. All rights reserved.</footer>
-
-  <audio id="glitch-sound" autoplay style="display:none">
-    <source src="https://cdn.jsdelivr.net/gh/stephen-gaffney/assets@main/glitch.mp3" type="audio/mpeg" />
-  </audio>
+  <!-- Glitch sound effect (audio is small and preloaded) -->
+  <audio id="glitchAudio" preload="auto" src="data:audio/mpeg;base64,//UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0Yf//AAD/AAD/..." ></audio>
 
   <script>
-    function triggerGlitch(e) {
-      e.preventDefault();
-      const overlay = document.createElement('div');
-      overlay.className = 'glitch-overlay';
-      overlay.innerHTML = '<span>DECODING FOOTAGE...</span>';
-      document.body.appendChild(overlay);
-      const audio = document.getElementById('glitch-sound');
-      if (audio) {
-        audio.currentTime = 0;
-        audio.play();
-      }
-      setTimeout(() => {
-        window.location.href = e.currentTarget.href;
+    // Fade out and remove the intro overlay after a short delay
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.getElementById('overlay').style.opacity = '0';
+      }, 1500);
+      setTimeout(function() {
+        var overlay = document.getElementById('overlay');
+        overlay.style.display = 'none';
+        overlay.style.opacity = '1';  // reset for potential reuse
       }, 2000);
-    }
+    });
+
+    // Glitch transition and audio when clicking "Submit Your Film"
+    document.querySelector('.submit-button').addEventListener('click', function(e) {
+      e.preventDefault();
+      var overlay = document.getElementById('overlay');
+      var overlayText = document.querySelector('.overlay-text');
+      // Hide the overlay text during transition
+      overlayText.style.display = 'none';
+      // Show overlay and trigger glitch flash
+      overlay.style.display = 'flex';
+      void overlay.offsetWidth;  // force reflow to restart CSS animation
+      overlay.style.animation = 'glitchTransition 0.5s forwards';
+      // Play crackling glitch sound
+      document.getElementById('glitchAudio').play();
+      // After the short glitch, navigate to the contact page
+      setTimeout(function() {
+        window.location.href = 'sales-and-acquisitions.html';
+      }, 500);
+    });
   </script>
 </body>
 </html>
